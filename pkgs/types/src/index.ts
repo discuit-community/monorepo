@@ -6,3 +6,4 @@ export * from './types/list';
 export * from './types/mute';
 export * from './types/notification';
 export * from './types/report';
+export * from './types/error';
