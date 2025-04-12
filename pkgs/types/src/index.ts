@@ -7,3 +7,5 @@ export * from './types/mute';
 export * from './types/notification';
 export * from './types/report';
 export * from './types/error';
+export * from './types/requests';
+export * from './types/responses';
