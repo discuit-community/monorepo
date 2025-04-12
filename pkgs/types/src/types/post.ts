@@ -1,0 +1,91 @@
+import type { Image } from './image';
+import type { User } from './user';
+import type { Community } from './community';
+
+export type Comment = {
+  id: string;
+  postId: string;
+  postPublicId: string;
+  communityId: string;
+  communityName: string;
+  userId?: string;
+  username: string;
+  userGhostId?: string;
+  userGroup: "normal" | "admins" | "mods";
+  userDeleted: boolean;
+  parentId: string | null;
+  depth: number;
+  noReplies: number;
+  noDirectReplies: number;
+  ancestors: string[] | null;
+  body: string;
+  upvotes: number;
+  downvotes: number;
+  createdAt: string;
+  editedAt: string | null;
+  contentStripped?: boolean;
+  deleted: boolean;
+  deletedAt: string | null;
+  deletedAs?: "normal" | "admins" | "mods";
+  author: User;
+  isAuthorMuted?: boolean;
+  userVoted: boolean | null;
+  userVotedUp: boolean | null;
+  postTitle?: string;
+  postDeleted: boolean;
+  postDeletedAs?: "normal" | "admins" | "mods";
+};
+
+export type Post = {
+  id: string;
+  type: "text" | "image" | "link";
+  publicId: string;
+  userId: string;
+  username: string;
+  userGhostId?: string;
+  userGroup: "normal" | "admins" | "mods";
+  userDeleted: boolean;
+  isPinned: boolean;
+  isPinnedSite: boolean;
+  communityId: string;
+  communityName: string;
+  communityProPic: Image | null;
+  communityBannerImage: Image | null;
+  title: string;
+  body: string | null;
+  /**
+  * @deprecated use the `images` array instead
+  */
+  image: Image | null;
+  images: Image[];
+  link?: {
+    url: string;
+    hostname: string;
+    image: Image | null;
+  };
+  locked: boolean;
+  lockedBy: string | null;
+  lockedByGroup?: "owner" | "admins" | "mods";
+  lockedAt: string | null;
+  upvotes: number;
+  downvotes: number;
+  hotness: number;
+  createdAt: string;
+  editedAt: string | null;
+  lastActivityAt: string;
+  deleted: boolean;
+  deletedAt: string | null;
+  deletedBy?: string | null;
+  deletedAs?: "normal" | "admins" | "mods";
+  deletedContent: boolean;
+  deletedContentAs?: "normal" | "admins" | "mods";
+  noComments: number;
+  comments: Comment[] | null;
+  commentsNext: string | null;
+  userVoted: boolean | null;
+  userVotedUp: boolean | null;
+  isAuthorMuted: boolean;
+  isCommunityMuted: boolean;
+  community?: Community;
+  author?: User;
+};
