@@ -2,9 +2,10 @@
   "name": "@discuit-community",
   "private": true,
   "scripts": {
-    "fmt:client": "echo $PWD; bunx biome format --write ./pkgs/client/src/**/*.ts --no-errors-on-unmatched",
-    "fmt:jetstream": "bunx biome format --write pkgs/jetstream/src/**/*.ts --no-errors-on-unmatched",
-    "fmt:types": "bunx biome format --write pkgs/types/src/**/*.ts --no-errors-on-unmatched",
+    "fmt:client": "echo $PWD; bunx biome format --write ./pkgs/client/**/*.ts --no-errors-on-unmatched",
+    "fmt:jetstream": "bunx biome format --write pkgs/jetstream/**/*.ts --no-errors-on-unmatched",
+    "fmt:types": "bunx biome format --write pkgs/types/**/*.ts --no-errors-on-unmatched",
+    "fmt:proxy": "bunx biome format --write pkgs/proxy/**/*.ts --no-errors-on-unmatched",
     "fmt": "bunx run-p fmt:*"
   },
   "workspaces": [
