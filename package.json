@@ -1,5 +1,5 @@
 {
-  "name": "@discuit-community",
+  "name": "discuit-community",
   "private": true,
   "scripts": {
     "fmt:client": "echo $PWD; bunx biome format --write ./pkgs/client/**/*.ts --no-errors-on-unmatched",

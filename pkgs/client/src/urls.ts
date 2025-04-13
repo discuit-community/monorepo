@@ -119,7 +119,7 @@ export class DiscuitUrls {
 		commentVote: (): string => `${this.apiUrl}/_commentVote`,
 		lists: {
 			items: (listId: string): string => `${this.apiUrl}/lists/${listId}/items`,
-		}
+		},
 	};
 }
 
