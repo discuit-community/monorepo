@@ -1,0 +1,23 @@
+{
+	"name": "@discuit-community/client",
+	"description": "a typesafe API client for Discuit",
+	"module": "src/index.ts",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"dependencies": {
+		"@discuit-community/types": "workspace:*",
+		"npm-run-all": "^4.1.5",
+		"openai": "^4.93.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	}
+}
