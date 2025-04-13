@@ -3,10 +3,17 @@
   "module": "src/index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "fmt:client": "echo $PWD; bunx biome format --write ./pkgs/client/src/**/*.ts --no-errors-on-unmatched",
+    "fmt:jetstream": "bunx biome format --write pkgs/jetstream/src/**/*.ts --no-errors-on-unmatched",
+    "fmt:types": "bunx biome format --write pkgs/types/src/**/*.ts --no-errors-on-unmatched",
+    "fmt": "bunx run-p fmt:*"
+  },
   "workspaces": [
     "pkgs/*"
   ],
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/bun": "latest"
   },
   "peerDependencies": {
