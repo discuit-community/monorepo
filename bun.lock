@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "jetstream",
+      "name": "@discuit-community",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
         "@types/bun": "latest",
@@ -14,7 +14,6 @@
     "pkgs/client": {
       "name": "@discuit-community/client",
       "dependencies": {
-        "@discuit-community/client": "workspace:*",
         "@discuit-community/types": "workspace:*",
         "npm-run-all": "^4.1.5",
         "openai": "^4.93.0",
@@ -36,6 +35,15 @@
       },
       "peerDependencies": {
         "typescript": "^5.0.0",
+      },
+    },
+    "pkgs/proxy": {
+      "name": "@discuit-community/proxy",
+      "dependencies": {
+        "@discuit-community/client": "workspace:*",
+      },
+      "devDependencies": {
+        "@types/bun": "latest",
       },
     },
     "pkgs/types": {
@@ -71,6 +79,8 @@
     "@discuit-community/client": ["@discuit-community/client@workspace:pkgs/client"],
 
     "@discuit-community/jetstream": ["@discuit-community/jetstream@workspace:pkgs/jetstream"],
+
+    "@discuit-community/proxy": ["@discuit-community/proxy@workspace:pkgs/proxy"],
 
     "@discuit-community/types": ["@discuit-community/types@workspace:pkgs/types"],
 

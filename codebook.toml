@@ -1,0 +1,13 @@
+dictionaries = []
+words = [
+    "discuit",
+    "downvote",
+    "jetstream",
+    "signup",
+    "unsave",
+    "upvote",
+]
+flag_words = []
+ignore_paths = []
+ignore_patterns = []
+use_global = true

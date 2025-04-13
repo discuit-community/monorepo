@@ -1,0 +1,17 @@
+{
+	"name": "@discuit-community/proxy",
+	"description": "a proxy for Discuit",
+	"module": "src/index.ts",
+	"main": "src/index.ts",
+	"type": "module",
+	"scripts": {
+		"dev": "bun --watch src/index.ts",
+		"start": "bun src/index.ts"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"dependencies": {
+		"@discuit-community/client": "workspace:*"
+	}
+}
