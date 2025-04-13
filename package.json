@@ -1,7 +1,5 @@
 {
-  "name": "jetstream",
-  "module": "src/index.ts",
-  "type": "module",
+  "name": "@discuit-community",
   "private": true,
   "scripts": {
     "fmt:client": "echo $PWD; bunx biome format --write ./pkgs/client/src/**/*.ts --no-errors-on-unmatched",
