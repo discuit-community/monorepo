@@ -30,6 +30,10 @@ jobs:
       - name: build packages
         run: bun run build
 
+      - name: replace workspace references
+        run: |
+          find ./pkgs -name "package.json" -type f -exec sed -i 's/"workspace:\*"/"latest"/g' {} \;
+
       - name: create release pull request/publish to npm
         id: changesets
         uses: changesets/action@v1

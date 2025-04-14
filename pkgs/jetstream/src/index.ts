@@ -2,10 +2,8 @@ import { Jetstream } from "./core";
 import { JetstreamServer, Topic } from "./server";
 import { DiscuitClient } from "@discuit-community/client";
 
-// Re-export everything
 export { Jetstream, JetstreamServer, Topic };
 
-// Main entry point for direct execution
 if (import.meta.url === `file://${Bun.main}`) {
   const client = new DiscuitClient();
   await client.initialize();
