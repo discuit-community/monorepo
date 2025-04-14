@@ -35,6 +35,6 @@ around CORS limitations.
 
 ## copying
 
-`discuit community` and all its packages are licensed under the copyleft GNU
+discuit community and all its packages are licensed under the copyleft GNU
 General Public License v3.0. you can find the full text of the license in the
 [`COPYING`] file.
