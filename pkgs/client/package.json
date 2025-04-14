@@ -1,14 +1,18 @@
 {
-	"name": "@discuit-community/client",
-	"description": "a typesafe API client for Discuit",
-	"version": "0.1.0",
+  "name": "@discuit-community/client",
+  "description": "a typesafe API client for Discuit",
+  "version": "0.1.0",
   "license": "AGPL-3.0-only",
   "repository": {
     "type": "git",
     "url": "https://github.com/sillowww/discuit-community",
     "directory": "pkgs/client"
   },
-  "keywords": ["discuit", "api", "client"],
+  "keywords": [
+    "discuit",
+    "api",
+    "client"
+  ],
   "author": {
     "name": "willow",
     "email": "willow@iri.moe",
@@ -19,24 +23,24 @@
     "email": "willow@iri.moe"
   },
   "homepage": "https://github.com/discuit-community/monorepo/tree/main/pkgs/client#readme",
-	"module": "src/index.ts",
-	"type": "module",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"scripts": {
-		"build": "tsc",
-		"dev": "tsc --watch"
-	},
-	"devDependencies": {
-		"@types/bun": "latest"
-	},
-	"dependencies": {
+  "module": "src/index.ts",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "dependencies": {
     "@discuit-community/types": "^0.1.0",
     "npm-run-all": "^4.1.5"
-	},
-	"peerDependencies": {
+  },
+  "peerDependencies": {
     "typescript": "^5.0.0"
-	},
+  },
   "engines": {
     "node": ">=18.0.0"
   }
