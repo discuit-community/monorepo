@@ -1,5 +1,11 @@
 # @discuit-community/client
 
+## 0.3.2
+
+### Patch Changes
+
+- d87c5ee: fix: fix Comment method on PostModel using the publicId
+
 ## 0.3.0
 
 ### Minor Changes
