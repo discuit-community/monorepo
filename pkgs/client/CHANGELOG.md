@@ -1,5 +1,11 @@
 # @discuit-community/client
 
+## 0.3.3
+
+### Patch Changes
+
+- 4a5d373: revert using non-public id for Comment method on PostModel
+
 ## 0.3.2
 
 ### Patch Changes

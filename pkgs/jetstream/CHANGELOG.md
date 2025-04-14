@@ -1,5 +1,12 @@
 # @discuit-community/jetstream
 
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies [4a5d373]
+  - @discuit-community/client@0.3.3
+
 ## 0.2.1
 
 ### Patch Changes
