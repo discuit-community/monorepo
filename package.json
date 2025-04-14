@@ -12,6 +12,7 @@
     "fmt:proxy": "bunx biome format --write pkgs/proxy/**/*.ts --no-errors-on-unmatched",
     "build:types": "cd pkgs/types && bun run build",
     "build:client": "cd pkgs/client && bun run build",
+    "build:jetstream": "cd pkgs/jetstream && bun run build",
     "build": "bunx run-s build:*",
     "fmt": "bunx run-p fmt:*",
     "release": "changeset publish"
