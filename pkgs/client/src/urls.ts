@@ -23,19 +23,13 @@ export class DiscuitUrls {
 		return includeHost ? `${this.baseUrl}${path}` : path;
 	}
 
-	community(options: {
-		name: string;
-		includeHost?: boolean;
-	}): string {
+	community(options: { name: string; includeHost?: boolean }): string {
 		const { name, includeHost = true } = options;
 		const path = `/${name}`;
 		return includeHost ? `${this.baseUrl}${path}` : path;
 	}
 
-	user(options: {
-		username: string;
-		includeHost?: boolean;
-	}): string {
+	user(options: { username: string; includeHost?: boolean }): string {
 		const { username, includeHost = true } = options;
 		const path = `/@${username}`;
 		return includeHost ? `${this.baseUrl}${path}` : path;
@@ -70,7 +64,8 @@ export class DiscuitUrls {
 		login: (): string => `${this.apiUrl}/_login`,
 		signup: (): string => `${this.apiUrl}/_signup`,
 		initial: (): string => `${this.apiUrl}/_initial`,
-		user: (): string => `${this.apiUrl}/_user`,
+		self: (): string => `${this.apiUrl}/_user`,
+		user: (username: string): string => `${this.apiUrl}/users/${username}`,
 		posts: (params?: Record<string, string>): string => {
 			let url = `${this.apiUrl}/posts`;
 			if (params) {
@@ -115,6 +110,8 @@ export class DiscuitUrls {
 
 			return url;
 		},
+		mutes: (): string => `${this.apiUrl}/mutes`,
+		mute: (muteId: string): string => `${this.apiUrl}/mutes/${muteId}`,
 		postVote: (): string => `${this.apiUrl}/_postVote`,
 		commentVote: (): string => `${this.apiUrl}/_commentVote`,
 		lists: {

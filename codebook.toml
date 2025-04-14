@@ -4,8 +4,10 @@ words = [
     "downvote",
     "jetstream",
     "signup",
+    "unmute",
     "unsave",
     "upvote",
+    "usermodel",
 ]
 flag_words = []
 ignore_paths = []

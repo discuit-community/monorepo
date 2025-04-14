@@ -1,127 +1,142 @@
 import type {
-	Post as PostType,
-	PostVoteRequest,
-	Comment,
+  Post as PostType,
+  PostVoteRequest,
+  Comment,
 } from "@discuit-community/types";
-import { Model } from "./base";
 import type { Result } from "../utils/errors";
+import { Model } from "./base";
 import { CommentModel } from "./comment";
+import { UserModel } from "./user";
 
 export class PostModel extends Model {
-	private data: PostType;
+  private data: PostType;
+  private _author: UserModel | null = null;
 
-	constructor(client: any, data: PostType) {
-		super(client);
-		this.data = data;
-	}
+  constructor(client: any, data: PostType) {
+    super(client);
+    this.data = data;
+  }
 
-	get raw(): PostType {
-		return this.data;
-	}
+  get raw(): PostType {
+    return this.data;
+  }
 
-	get url(): string {
-		return this.client.urls.post({
-			publicId: this.data.publicId,
-			communityName: this.data.communityName,
-		});
-	}
+  get url(): string {
+    return this.client.urls.post({
+      publicId: this.data.publicId,
+      communityName: this.data.communityName,
+    });
+  }
 
-	async upvote(): Promise<Result<PostModel>> {
-		const payload: PostVoteRequest = {
-			postId: this.data.id,
-			up: true,
-		};
+  get author(): UserModel | null {
+    return this._author;
+  }
 
-		const [data, error] = await this.apiCall<PostType>(
-			"POST",
-			this.client.urls.api.postVote(),
-			payload,
-		);
+  async upvote(): Promise<Result<PostModel>> {
+    const payload: PostVoteRequest = {
+      postId: this.data.id,
+      up: true,
+    };
 
-		if (error) return [null, error];
-		this.data = data;
-		return [this, null];
-	}
+    const [data, error] = await this.apiCall<PostType>(
+      "POST",
+      this.client.urls.api.postVote(),
+      payload
+    );
 
-	async downvote(): Promise<Result<PostModel>> {
-		const payload: PostVoteRequest = {
-			postId: this.data.id,
-			up: false,
-		};
+    if (error) return [null, error];
+    this.data = data;
+    return [this, null];
+  }
 
-		const [data, error] = await this.apiCall<PostType>(
-			"POST",
-			this.client.urls.api.postVote(),
-			payload,
-		);
+  async downvote(): Promise<Result<PostModel>> {
+    const payload: PostVoteRequest = {
+      postId: this.data.id,
+      up: false,
+    };
 
-		if (error) return [null, error];
-		this.data = data;
-		return [this, null];
-	}
+    const [data, error] = await this.apiCall<PostType>(
+      "POST",
+      this.client.urls.api.postVote(),
+      payload
+    );
 
-	async getComments(
-		parentId?: string,
-		next?: string,
-	): Promise<Result<CommentModel[]>> {
-		const endpoint = this.client.urls.api.comments(
-			this.data.publicId,
-			parentId,
-			next,
-		);
+    if (error) return [null, error];
+    this.data = data;
+    if (data.author) this._author = new UserModel(this.client, data.author);
 
-		const [data, error] = await this.apiCall<{
-			comments: Comment[];
-			next: string | null;
-		}>("GET", endpoint);
+    return [this, null];
+  }
 
-		if (error) return [null, error];
+  async getComments(
+    parentId?: string,
+    next?: string
+  ): Promise<Result<CommentModel[]>> {
+    const endpoint = this.client.urls.api.comments(
+      this.data.publicId,
+      parentId,
+      next
+    );
 
-		const comments =
-			data.comments?.map((comment) => new CommentModel(this.client, comment)) ||
-			[];
+    const [data, error] = await this.apiCall<{
+      comments: Comment[];
+      next: string | null;
+    }>("GET", endpoint);
 
-		return [comments, null];
-	}
+    if (error) return [null, error];
 
-	async comment(options: {
-		body: string;
-		parentCommentId?: string;
-	}): Promise<Result<CommentModel>> {
-		const [data, error] = await this.apiCall<Comment>(
-			"POST",
-			this.client.urls.api.comments(this.data.publicId),
-			options,
-		);
+    const comments =
+      data.comments?.map((comment) => new CommentModel(this.client, comment)) ||
+      [];
 
-		if (error) return [null, error];
-		const comment = new CommentModel(this.client, data);
-		return [comment, null];
-	}
+    return [comments, null];
+  }
 
-	async delete(): Promise<Result<PostModel>> {
-		const [data, error] = await this.apiCall<PostType>(
-			"DELETE",
-			this.client.urls.api.post(this.data.publicId),
-		);
+  async comment(options: {
+    body: string;
+    parentCommentId?: string;
+  }): Promise<Result<CommentModel>> {
+    const [data, error] = await this.apiCall<Comment>(
+      "POST",
+      this.client.urls.api.comments(this.data.publicId),
+      options
+    );
 
-		if (error) return [null, error];
-		this.data = data;
-		return [this, null];
-	}
+    if (error) return [null, error];
+    const comment = new CommentModel(this.client, data);
+    return [comment, null];
+  }
 
-	async update(options: {
-		title?: string;
-		body?: string;
-	}): Promise<Result<PostModel>> {
-		const [data, error] = await this.apiCall<PostType>(
-			"PUT",
-			this.client.urls.api.post(this.data.publicId),
-			options,
-		);
+  async delete(): Promise<Result<PostModel>> {
+    const [data, error] = await this.apiCall<PostType>(
+      "DELETE",
+      this.client.urls.api.post(this.data.publicId)
+    );
 
-		if (error) return [null, error];
-		this.data = data;
-		return [this, null];
-	}
+    if (error) return [null, error];
+    this.data = data;
+    return [this, null];
+  }
+
+  async update(
+    options:
+      | {
+          title: string;
+          body?: string;
+        }
+      | {
+          title?: string;
+          body: string;
+        }
+  ): Promise<Result<PostModel>> {
+    const [data, error] = await this.apiCall<PostType>(
+      "PUT",
+      this.client.urls.api.post(this.data.publicId),
+      options
+    );
+
+    if (error) return [null, error];
+    this.data = data;
+    return [this, null];
+  }
 }

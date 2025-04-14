@@ -1,7 +1,6 @@
 import type {
 	User,
 	Post,
-	Comment,
 	LoginRequest,
 	SignupRequest,
 	CreatePostRequest,
@@ -10,6 +9,7 @@ import type {
 import { DiscuitUrls } from "./urls";
 import { type Result, success, failure } from "./utils/errors";
 import { PostModel } from "./models/post";
+import { UserModel } from "./models/user";
 
 export class DiscuitClient {
 	private apiUrl: string;
@@ -99,9 +99,31 @@ export class DiscuitClient {
 		}
 	}
 
+	async getUser(username: string): Promise<Result<UserModel>> {
+		try {
+			const response = await this.fetchAuthed(
+				"GET",
+				this.urls.api.user(username),
+			);
+			const data = await response.json();
+
+			if ("status" in data && "message" in data) {
+				return failure(data);
+			}
+
+			return success(new UserModel(this, data));
+		} catch (error) {
+			return failure({
+				status: 500,
+				message:
+					error instanceof Error ? error.message : "Unknown error occurred",
+			});
+		}
+	}
+
 	async getCurrentUser(): Promise<Result<User>> {
 		try {
-			const response = await this.fetchAuthed("GET", this.urls.api.user());
+			const response = await this.fetchAuthed("GET", this.urls.api.self());
 			const data = await response.json();
 
 			if ("status" in data && "message" in data) {
