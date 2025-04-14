@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@discuit-community/jetstream", "@discuit-community/proxy"]
+  "ignore": ["@discuit-community/proxy"]
 }

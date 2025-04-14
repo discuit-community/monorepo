@@ -1,19 +1,42 @@
 {
   "name": "@discuit-community/jetstream",
   "module": "src/index.ts",
-  "private": true,
+  "version": "0.0.0",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sillowww/discuit-community",
+    "directory": "pkgs/jetstream"
+  },
+  "keywords": [
+    "discuit",
+    "api",
+    "jetstream"
+  ],
+  "author": {
+    "name": "willow",
+    "email": "willow@iri.moe",
+    "url": "https://github.com/sillowww"
+  },
+  "bugs": {
+    "url": "https://github.com/discuit-community/monorepo/issues",
+    "email": "willow@iri.moe"
+  },
+  "homepage": "https://github.com/discuit-community/monorepo/tree/main/pkgs/jetstream#readme",
   "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "bun --watch src/index.ts",
-    "start": "bun start"
-  },
-  "dependencies": {
-    "@discuit-community/types": "workspace:*"
+    "start": "bun start",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@discuit-community/types": "workspace:*",
+    "@discuit-community/client": "workspace:*"
   }
 }
