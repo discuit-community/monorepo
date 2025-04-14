@@ -98,7 +98,7 @@ export class PostModel extends Model {
   }): Promise<Result<CommentModel>> {
     const [data, error] = await this.apiCall<Comment>(
       "POST",
-      this.client.urls.api.comments(this.data.publicId),
+      this.client.urls.api.comments(this.data.id),
       options
     );
 
