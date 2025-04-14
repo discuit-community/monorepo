@@ -1,6 +1,7 @@
 {
   "name": "@discuit-community/jetstream",
   "module": "src/index.ts",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/index.ts",

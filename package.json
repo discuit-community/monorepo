@@ -10,13 +10,18 @@
     "fmt:jetstream": "bunx biome format --write pkgs/jetstream/**/*.ts --no-errors-on-unmatched",
     "fmt:types": "bunx biome format --write pkgs/types/**/*.ts --no-errors-on-unmatched",
     "fmt:proxy": "bunx biome format --write pkgs/proxy/**/*.ts --no-errors-on-unmatched",
-    "fmt": "bunx run-p fmt:*"
+    "build:client": "cd pkgs/client && bun run build",
+    "build:types": "cd pkgs/types && bun run build",
+    "build": "bunx run-p build:*",
+    "fmt": "bunx run-p fmt:*",
+    "release": "changeset publish"
   },
   "workspaces": [
     "pkgs/*"
   ],
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@changesets/cli": "^2.28.1",
     "@types/bun": "latest"
   },
   "peerDependencies": {
