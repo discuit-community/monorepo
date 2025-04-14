@@ -1,6 +1,7 @@
 {
 	"name": "@discuit-community/client",
 	"description": "a typesafe API client for Discuit",
+	"version": "0.1.0",
 	"module": "src/index.ts",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
