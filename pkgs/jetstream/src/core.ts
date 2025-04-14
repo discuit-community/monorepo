@@ -50,9 +50,11 @@ export class Jetstream extends EventEmitter {
 				if (error) {
 					this.emit("error", error);
 				} else {
-					const newPosts = result.filter(
-						(post) => !this.seenPosts.has(post.raw.id),
-					);
+					const newPosts = result.filter((post) => {
+						if (this.seenPosts.has(post.raw.id)) return false;
+						const postDate = new Date(post.raw.createdAt);
+						return postDate >= this.startTime;
+					});
 
 					newPosts.forEach((post) => this.handleNewPost(post.raw));
 

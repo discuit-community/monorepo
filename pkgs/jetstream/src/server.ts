@@ -1,8 +1,8 @@
 import { Jetstream, type JetstreamEvent } from "./core";
 
 export enum Topic {
-	NEW_POSTS = "new_posts",
-	NEW_COMMENTS = "new_comments",
+	NEW_POST = "new_post",
+	NEW_COMMENT = "new_comment",
 	ALL = "all",
 }
 
@@ -82,14 +82,14 @@ export class JetstreamServer {
 		this.jetstream.on("new_post", (post) => {
 			const event: JetstreamEvent = { type: "new_post", post };
 			const message = JSON.stringify(event);
-			this.server.publish(Topic.NEW_POSTS, message);
+			this.server.publish(Topic.NEW_POST, message);
 			this.server.publish(Topic.ALL, message);
 		});
 
 		this.jetstream.on("new_comment", (comment, postId) => {
 			const event: JetstreamEvent = { type: "new_comment", comment, postId };
 			const message = JSON.stringify(event);
-			this.server.publish(Topic.NEW_COMMENTS, message);
+			this.server.publish(Topic.NEW_COMMENT, message);
 			this.server.publish(Topic.ALL, message);
 		});
 
