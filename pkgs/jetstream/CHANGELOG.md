@@ -1,5 +1,11 @@
 # @discuit-community/jetstream
 
+## 0.2.0
+
+### Minor Changes
+
+- d360c6c: fix: check if posts were made before the server was started
+
 ## 0.1.0
 
 ### Minor Changes
