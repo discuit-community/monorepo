@@ -1,8 +1,25 @@
 {
   "name": "@discuit-community/types",
   "description": "typescript definitions for Discuit API",
-  "module": "src/index.ts",
   "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sillowww/discuit-community",
+    "directory": "pkgs/types"
+  },
+  "keywords": ["discuit", "api", "types"],
+  "author": {
+    "name": "willow",
+    "email": "willow@iri.moe",
+    "url": "https://github.com/sillowww"
+  },
+  "bugs": {
+    "url": "https://github.com/discuit-community/monorepo/issues",
+    "email": "willow@iri.moe"
+  },
+  "homepage": "https://github.com/discuit-community/monorepo/tree/main/pkgs/types#readme",
+  "module": "src/index.ts",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -2,10 +2,27 @@
 	"name": "@discuit-community/client",
 	"description": "a typesafe API client for Discuit",
 	"version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sillowww/discuit-community",
+    "directory": "pkgs/client"
+  },
+  "keywords": ["discuit", "api", "client"],
+  "author": {
+    "name": "willow",
+    "email": "willow@iri.moe",
+    "url": "https://github.com/sillowww"
+  },
+  "bugs": {
+    "url": "https://github.com/discuit-community/monorepo/issues",
+    "email": "willow@iri.moe"
+  },
+  "homepage": "https://github.com/discuit-community/monorepo/tree/main/pkgs/client#readme",
 	"module": "src/index.ts",
+	"type": "module",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"type": "module",
 	"scripts": {
 		"build": "tsc",
 		"dev": "tsc --watch"
@@ -14,11 +31,13 @@
 		"@types/bun": "latest"
 	},
 	"dependencies": {
-		"@discuit-community/types": "workspace:*",
-		"npm-run-all": "^4.1.5",
-		"openai": "^4.93.0"
+    "@discuit-community/types": "^0.1.0",
+    "npm-run-all": "^4.1.5"
 	},
 	"peerDependencies": {
-		"typescript": "^5.0.0"
-	}
+    "typescript": "^5.0.0"
+	},
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

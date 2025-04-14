@@ -1,6 +1,10 @@
 {
   "name": "discuit-community",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/discuit-community/monorepo"
+  },
   "scripts": {
     "fmt:client": "echo $PWD; bunx biome format --write ./pkgs/client/**/*.ts --no-errors-on-unmatched",
     "fmt:jetstream": "bunx biome format --write pkgs/jetstream/**/*.ts --no-errors-on-unmatched",
