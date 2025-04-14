@@ -35,8 +35,7 @@
     "@types/bun": "latest"
   },
   "dependencies": {
-    "@discuit-community/types": "workspace:*",
-    "npm-run-all": "^4.1.5"
+    "@discuit-community/types": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

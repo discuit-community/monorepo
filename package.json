@@ -23,7 +23,8 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@changesets/cli": "^2.28.1",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "npm-run-all": "^4.1.5"
   },
   "peerDependencies": {
     "typescript": "^5.8.3"
