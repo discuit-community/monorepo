@@ -1,5 +1,11 @@
 # @discuit-community/jetstream
 
+## 0.3.0
+
+### Minor Changes
+
+- d9394a5: retry failed requests
+
 ## 0.2.2
 
 ### Patch Changes
