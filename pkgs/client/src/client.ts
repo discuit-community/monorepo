@@ -157,7 +157,7 @@ export class DiscuitClient {
 			next?: string;
 			limit?: number;
 		} = {},
-	): Promise<Result<PostModel[]>> {
+	): Promise<Result<{ posts: PostModel[], next?: string }>> {
 		try {
 			const params: Record<string, string> = {};
 			if (options.feed) params.feed = options.feed;
@@ -178,7 +178,7 @@ export class DiscuitClient {
 			}
 
 			const posts = data.posts.map((post: Post) => new PostModel(this, post));
-			return success(posts);
+			return success({ posts, next: data.next });
 		} catch (error) {
 			return failure({
 				status: 500,
