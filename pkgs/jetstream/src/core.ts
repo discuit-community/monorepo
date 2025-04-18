@@ -63,7 +63,7 @@ export class Jetstream extends EventEmitter {
 						}
 						await Bun.sleep(this.retryDelay);
 					} else {
-						const newPosts = result.filter((post) => {
+						const newPosts = result.posts.filter((post) => {
 							if (this.seenPosts.has(post.raw.id)) return false;
 							const postDate = new Date(post.raw.createdAt);
 							return postDate >= this.startTime;
@@ -116,7 +116,7 @@ export class Jetstream extends EventEmitter {
 						}
 						await Bun.sleep(this.retryDelay);
 					} else {
-						for (const postModel of result) {
+						for (const postModel of result.posts) {
 							const post = postModel.raw;
 							if (post.noComments === 0) continue;
 							const [comments, commentsError] = await postModel.getComments();
