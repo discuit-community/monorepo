@@ -1,5 +1,11 @@
 # @discuit-community/client
 
+## 0.4.0
+
+### Minor Changes
+
+- 882dea6: return pagination cursor in getPosts method
+
 ## 0.3.3
 
 ### Patch Changes

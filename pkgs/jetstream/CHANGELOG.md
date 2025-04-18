@@ -1,5 +1,13 @@
 # @discuit-community/jetstream
 
+## 1.0.0
+
+### Patch Changes
+
+- 8d50429: update to latest client vers
+- Updated dependencies [882dea6]
+  - @discuit-community/client@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes
