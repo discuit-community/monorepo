@@ -1,5 +1,12 @@
 # @discuit-community/client
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [6ac79c0]
+  - @discuit-community/types@0.2.0
+
 ## 0.4.0
 
 ### Minor Changes
