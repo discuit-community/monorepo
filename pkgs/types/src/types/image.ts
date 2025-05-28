@@ -19,6 +19,7 @@ export type Image = {
   averageColor: string;
   url: string;
   copies: ImageCopy[];
+  altText?: string;
 };
 
 export type ImageUpload = {
