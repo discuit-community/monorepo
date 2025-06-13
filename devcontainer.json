@@ -1,0 +1,13 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/base:debian",
+    "customizations": {
+        "vscode": {
+            "extensions": ["biomejs.biome"]
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/nix:1": {
+            "packages": "bun, biome"
+        }
+    }
+}
